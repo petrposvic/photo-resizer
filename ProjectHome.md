@@ -1,0 +1,1 @@
+Resize all .jpg images in directory.
