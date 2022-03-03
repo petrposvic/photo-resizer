@@ -26,6 +26,8 @@ QUALITY=80
 #Convert image $1 to image $2 with suffix $3
 #-------------------------------------------------------------------------------
 function con {
+  echo "Converting $1..."
+
   #Photo
   convert "$1" -resize $SIZE -quality $QUALITY $RESIZED_DIR/$2$3
 
