@@ -51,14 +51,15 @@ if [ -e $RESIZED_DIR ]; then
 fi
 
 mkdir $RESIZED_DIR
+img_files=`find . -type f -print0 | xargs -0 file --mime-type | grep -F 'image/' | cut -d ':' -f 1`
 
 if [ $RENAME -eq 0 ]; then
-  for file in *.[jJ][pP]* ; do
+  for file in $img_files; do
     con $file $file
   done
 else
   N=1
-  for file in *.[jJ][pP]* ; do
+  for file in $img_files; do
     A=$N
     while [ ${#A} -lt $RENAME ]; do
       A="0$A"
